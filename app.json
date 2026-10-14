@@ -1,0 +1,60 @@
+{
+  "id": "designcraft",
+  "name": "DesignCraft",
+  "tagline": "InDesign-style page layout and publishing",
+  "upstream": "storytold/designcraft",
+  "port": 7981,
+  "docsPort": 7979,
+  "launch": {
+    "args": [
+      "--control",
+      "{port}"
+    ]
+  },
+  "mcp": {
+    "server": "designcraft",
+    "live": [
+      "mcp",
+      "--connect",
+      "{port}"
+    ],
+    "headless": [
+      "mcp"
+    ],
+    "default": "live"
+  },
+  "windows": {
+    "dirs": [
+      "{ProgramFiles}\\DesignCraft",
+      "{LocalAppData}\\Programs\\DesignCraft"
+    ],
+    "app": "designcraft.exe",
+    "cli": "designcraft-cli.exe"
+  },
+  "macos": {
+    "bundles": [
+      "/Applications/DesignCraft.app",
+      "{home}/Applications/DesignCraft.app"
+    ],
+    "appBinary": "Contents/MacOS/DesignCraft",
+    "cliPaths": [
+      "{home}/.artcraft/bin/designcraft-cli",
+      "/usr/local/bin/designcraft-cli",
+      "/opt/homebrew/bin/designcraft-cli",
+      "{bundle}/Contents/MacOS/designcraft-cli"
+    ],
+    "cliReleaseAsset": "designcraft-cli-{version}-macos-universal.zip",
+    "cliBinaryInZip": "designcraft-cli"
+  },
+  "prepare": {
+    "dirs": []
+  },
+  "auth": {
+    "type": "none",
+    "notes": "Loopback only, no token."
+  },
+  "verified": {
+    "windows": true,
+    "macos": false
+  }
+}
